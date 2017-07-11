@@ -1,4 +1,22 @@
-<h1>Bloc Chat</h1>
-<ul class="rooms-list">
-    <li ng-repeat="room in home.rooms">{{ room.$value }}</div>
-</ul>
+<div class="container-fluid vertical-full">
+    <div class="row vertical-full">
+        <div class="col-sm-3 col-md-4 sidebar sidebar-fixed vertical-full">
+            <div class="sidebar-header">
+                <a class="sidebar-title" href="#">Bloc Chat</a>
+                <button type="button" class="btn btn-default" ng-click="home.openModal()">New Room</button>
+            </div>
+            <div class="container-fluid">
+                <div class="sidebar-content">
+                    <ul class="rooms-list">
+                        <li ng-repeat="room in home.rooms">{{ room.name }}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9 col-md-8">
+            <h2>Room Name Here</h2>
+            <div>room content</div>
+            <div>empty content</div>
+        </div>
+    </div>
+</div>

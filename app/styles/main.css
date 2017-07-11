@@ -1,0 +1,39 @@
+/*
+html, body, .vertical-full {
+    height: 100%;
+}
+*/
+
+body { 
+    padding-top: 20px; 
+}
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+
+.sidebar-fixed, sidebar {
+	width:20%;
+}
+
+
+.sidebar {
+    background-color: #FAFAFA;
+}
+
+.sidebar-header {
+    font-size: 2rem;
+}
+
+.sidebar-header a {
+    color: #848484;
+}
+
+.sidebar-content li {
+    list-style-type: none;
+    font-height: 1.5rem;
+    padding-top: 0.5rem;
+}
+
+.sidebar-content ul {
+    padding: 0;
+}
