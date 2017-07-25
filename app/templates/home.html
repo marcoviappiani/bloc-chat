@@ -8,15 +8,18 @@
             <div class="container-fluid">
                 <div class="sidebar-content">
                     <ul class="rooms-list">
-                        <li ng-repeat="room in home.rooms">{{ room.name }}
+                        <li ng-repeat="room in home.rooms" ng-click="home.loadMessages(room)">{{ room.name }}</li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="col-sm-9 col-md-8">
-            <h2>Room Name Here</h2>
-            <div>room content</div>
-            <div>empty content</div>
+            <h2>{{ home.activeRoom.name || "No room selected"}}</h2>
+            <div>
+                <ul>
+                    <li ng-repeat="message in home.activeRoom.messages">{{message.content}}</li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

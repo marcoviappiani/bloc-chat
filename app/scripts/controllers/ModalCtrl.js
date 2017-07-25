@@ -7,8 +7,8 @@
         this.roomName = '';
         
         this.ok = function() {
-            console.log('room name: ', vm.roomName);
-            alert("your roomName is" + vm.roomName);
+//            console.log('room name: ', vm.roomName);
+//            alert("your roomName is" + vm.roomName);
             Room.add({
                 name: this.roomName
             });
