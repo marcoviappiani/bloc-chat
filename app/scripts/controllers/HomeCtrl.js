@@ -1,12 +1,22 @@
 (function(){
-    function HomeCtrl($uibModal,Room, Message, $rootScope) {
+    function HomeCtrl($uibModal,Room, Message, $cookies, $scope) {
         this.rooms = Room.all;
 //        console.log(Room.all);
         
         this.activeRoom = {};
         this.activeRoom.name = null;
         this.activeRoom.messages = null;
-        this.currentUser = $rootScope.blocChatCurrentUser;
+        this.currentUser = $cookies.get('blocChatCurrentUser');
+        
+        
+        // alias `this`
+        var _this = this;
+
+        $scope.$watch(function(){
+            return $cookies.get('blocChatCurrentUser');
+        },function(){
+            _this.currentUser = $cookies.get('blocChatCurrentUser');
+        });
         
         
         this.loadMessages = function(selectedRoom) {
@@ -28,5 +38,5 @@
     
     angular
         .module('blocChat')
-        .controller('HomeCtrl', ['$uibModal','Room', 'Message', '$rootScope', HomeCtrl]);
+        .controller('HomeCtrl', ['$uibModal','Room', 'Message', '$cookies', '$scope', HomeCtrl]);
 })();

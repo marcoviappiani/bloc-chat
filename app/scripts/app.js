@@ -1,6 +1,6 @@
 (function() {
     
-    function BlocChatCookies($cookies, $uibModal, $rootScope) {
+    function BlocChatCookies($cookies, $uibModal) {
         var currentUser = $cookies.get('blocChatCurrentUser');
         if (!currentUser || currentUser == '') {
             $uibModal.open({
@@ -10,7 +10,6 @@
                 backdrop: 'static'
             });
         }
-        $rootScope.blocChatCurrentUser = currentUser;
     }
 
     function config($locationProvider, $stateProvider) {
@@ -31,5 +30,5 @@
      angular
          .module('blocChat', ['ui.router', 'firebase', 'ui.bootstrap', 'ngCookies'])
          .config(config)
-         .run(['$cookies', '$uibModal', '$rootScope', BlocChatCookies]);
+         .run(['$cookies', '$uibModal', BlocChatCookies]);
 })();
