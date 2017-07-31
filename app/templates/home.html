@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="col-sm-9 col-md-8">
-            <h2>{{ home.activeRoom.name || "No room selected"}}</h2>
+            <h2>{{ home.activeRoom.name || "No room selected"}} | Current User: {{ home.currentUser }}</h2>
             <div>
                 <ul>
                     <li ng-repeat="message in home.activeRoom.messages">{{message.content}}</li>

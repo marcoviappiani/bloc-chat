@@ -1,11 +1,12 @@
 (function(){
-    function HomeCtrl($uibModal,Room, Message) {
+    function HomeCtrl($uibModal,Room, Message, $rootScope) {
         this.rooms = Room.all;
 //        console.log(Room.all);
         
         this.activeRoom = {};
         this.activeRoom.name = null;
         this.activeRoom.messages = null;
+        this.currentUser = $rootScope.blocChatCurrentUser;
         
         
         this.loadMessages = function(selectedRoom) {
@@ -14,9 +15,9 @@
         };
         
         this.openModal = function(size, template){
-            console.log('opening modal');
+            
             $uibModal.open({
-                animtion: true,
+                animation: true,
                 templateUrl: template || '/templates/modal.html',
                 controller: 'ModalCtrl as modal',
                 backdrop: 'static'
@@ -27,5 +28,5 @@
     
     angular
         .module('blocChat')
-        .controller('HomeCtrl', ['$uibModal','Room', 'Message', HomeCtrl]);
+        .controller('HomeCtrl', ['$uibModal','Room', 'Message', '$rootScope', HomeCtrl]);
 })();
