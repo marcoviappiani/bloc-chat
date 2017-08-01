@@ -17,9 +17,20 @@
             <h2>{{ home.activeRoom.name || "No room selected"}} | Current User: {{ home.currentUser }}</h2>
             <div>
                 <ul>
-                    <li ng-repeat="message in home.activeRoom.messages">{{message.content}}</li>
+                    <li ng-repeat="message in home.activeRoom.messages">{{message.username}} at {{message.sentAt | date:'yyyy-MM-dd HH:mm:ss'}}: {{message.content}}</li>
                 </ul>
             </div>
+            <div class="new-message-box" id="new-message-box" ng-show="home.activeRoom.name">
+                <form ng-submit="home.sendMessage(home.newMessage)">
+                    <div class="input-group animated fadeIn">
+                        <input type="text" class="new-message-input form-control finderBar" ng-model="home.newMessage" placeholder="Write your message here..." autofocus>
+                        <span class="input-group-btn">
+                            <button class="btn btn-default btn-success" type="button" ng-disabled="!home.newMessage" ng-click="home.sendMessage(home.newMessage)">Send</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
         </div>
+        
     </div>
 </div>

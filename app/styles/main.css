@@ -10,6 +10,13 @@ body {
 
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
+.new-message-box {
+    position: fixed;
+    bottom: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 5px;
+}
 
 .sidebar-fixed, sidebar {
 	width:20%;
